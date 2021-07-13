@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TodoTableView" customModule="swift_todo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qtv-Ig-rhH" userLabel="Space1">
+                    <rect key="frame" x="0.0" y="95" width="414" height="10"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="10" id="7bZ-ZA-nWD"/>
+                    </constraints>
+                </view>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="87S-pe-UqY">
+                    <rect key="frame" x="0.0" y="44" width="414" height="51"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="51" id="SG5-Qx-PrB"/>
+                    </constraints>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sJJ-IR-yxE" userLabel="Space2">
+                    <rect key="frame" x="0.0" y="842" width="414" height="20"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="f5D-wu-WYx"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tVb-mr-v6d">
+                    <rect key="frame" x="30" y="105" width="354" height="737"/>
+                    <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="tVb-mr-v6d" firstAttribute="bottom" secondItem="sJJ-IR-yxE" secondAttribute="top" id="0fa-hu-REq"/>
+                <constraint firstItem="Qtv-Ig-rhH" firstAttribute="top" secondItem="87S-pe-UqY" secondAttribute="bottom" id="0xI-3k-thL" userLabel="View.top = Search Bar.bottom"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="sJJ-IR-yxE" secondAttribute="bottom" id="ApP-PA-yAD"/>
+                <constraint firstItem="87S-pe-UqY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="BAr-K8-DfJ"/>
+                <constraint firstItem="tVb-mr-v6d" firstAttribute="centerX" secondItem="87S-pe-UqY" secondAttribute="centerX" id="C1E-Wp-EbP"/>
+                <constraint firstItem="sJJ-IR-yxE" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="EJ5-6k-xdZ"/>
+                <constraint firstItem="tVb-mr-v6d" firstAttribute="top" secondItem="Qtv-Ig-rhH" secondAttribute="bottom" id="G3i-mA-Zrq"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Qtv-Ig-rhH" secondAttribute="trailing" id="Ldh-58-rUg"/>
+                <constraint firstItem="sJJ-IR-yxE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Mhv-u9-YcD"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="tVb-mr-v6d" secondAttribute="trailing" constant="30" id="MzW-k7-3sQ"/>
+                <constraint firstItem="87S-pe-UqY" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Swi-ZQ-Bwb"/>
+                <constraint firstItem="tVb-mr-v6d" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="dfL-Wo-Y8G"/>
+                <constraint firstItem="87S-pe-UqY" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="fhq-4l-4v0"/>
+                <constraint firstItem="Qtv-Ig-rhH" firstAttribute="leading" secondItem="87S-pe-UqY" secondAttribute="leading" id="jGy-PV-aEW"/>
+            </constraints>
+            <connections>
+                <outlet property="searchBar" destination="87S-pe-UqY" id="EVk-Iy-psi"/>
+                <outlet property="tableView" destination="tVb-mr-v6d" id="nyK-50-t4W"/>
+            </connections>
+            <point key="canvasLocation" x="147.82608695652175" y="153.34821428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
