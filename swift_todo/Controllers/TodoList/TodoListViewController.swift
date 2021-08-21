@@ -118,5 +118,6 @@ extension TodoListViewController: TodoCellViewDelegate {
         
         if case .success(_) = model.updateTodoList(todo: data) {
         }
+        
     }
 }
