@@ -6,3 +6,16 @@
 //
 
 import Foundation
+import RealmSwift
+
+class Todo: Object {
+    @objc dynamic var id = NSUUID().uuidString
+    @objc dynamic var createAt = Date()
+    @objc dynamic var name = ""
+
+    convenience init(name: String) {
+        self.init()
+        self.name = name
+    }
+}
+

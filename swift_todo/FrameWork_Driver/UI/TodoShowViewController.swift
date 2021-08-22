@@ -5,4 +5,13 @@
 //  Created by tk84 on 2021/08/21.
 //
 
-import Foundation
+import  UIKit
+
+class TodoShowViewController: UIViewController {
+
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+}
