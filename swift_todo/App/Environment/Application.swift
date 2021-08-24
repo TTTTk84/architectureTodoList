@@ -19,12 +19,14 @@ class Application {
         buildLayer()
 
         let todoIndexViewController = TodoIndexViewController()
-        let todoRouter = TodoRouter(view: todoIndexViewController)
+        let todoRouter = TodoIndexRouter(view: todoIndexViewController)
         let todoIndexPresenter = TodoIndexPresenter(view: todoIndexViewController,
                                                     useCase: self.useCase,
                                                     router: todoRouter)
         todoIndexViewController.inject(presenter: todoIndexPresenter)
-        window.rootViewController = todoIndexViewController
+        let navigatonController = UINavigationController(rootViewController: todoIndexViewController)
+
+        window.rootViewController = navigatonController
     }
 
 

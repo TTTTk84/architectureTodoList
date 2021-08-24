@@ -15,7 +15,7 @@ protocol TodoRouterProtocol  {
 }
 
 
-class TodoRouter: TodoRouterProtocol {
+class TodoIndexRouter: TodoRouterProtocol {
 
     private(set) var view: TodoViewProtocol!
     private let useCase = Application.shared.useCase
@@ -30,6 +30,11 @@ class TodoRouter: TodoRouterProtocol {
     }
 
     func transitionToAdd() {
+        let todoAddViewController = TodoAddViewController()
+        let todoAddPresenter = TodoAddPresenter(view: todoAddViewController,
+                                                useCase: self.useCase!)
+        todoAddViewController.inject(presenter: todoAddPresenter)
+        self.view.pushViewController(todoAddViewController, animated: true)
     }
 
     func transitionToEdit(todo: Todo) {

@@ -31,11 +31,12 @@ class TodoIndexViewController: UIViewController {
 
         self.view.addSubview(todoTableView)
         setupTodoTableView()
+        setupNavigation()
     }
 
     // MARK: Private Methods
 
-    func setupTodoTableView() {
+    private func setupTodoTableView() {
         self.todoTableView.delegate = self
         self.todoTableView.dataSource = self
         self.todoTableView.translatesAutoresizingMaskIntoConstraints = false
@@ -43,6 +44,15 @@ class TodoIndexViewController: UIViewController {
         self.todoTableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
         self.todoTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
         self.todoTableView.widthAnchor.constraint(equalToConstant: widthValue).isActive = true
+    }
+
+    private func setupNavigation() {
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onClick))
+        self.navigationItem.rightBarButtonItem = addButton
+    }
+
+    @objc private func onClick() {
+        self.presenter.tappedPlusButton()
     }
 
 }

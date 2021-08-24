@@ -9,6 +9,7 @@ import  UIKit
 
 class TodoShowViewController: UIViewController {
 
+    var textLabel: UILabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
