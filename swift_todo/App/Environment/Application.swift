@@ -34,6 +34,13 @@ class Application {
 
     private func buildLayer() {
         self.useCase = TodoUseCase()
+
+        let todoGateway = TodoGateway(useCase: self.useCase)
+
+        useCase.todoGateway = todoGateway
+
+        let todoDataStore = TodoDataStore()
+        todoGateway.dataStore = todoDataStore
     }
 
 }

@@ -46,7 +46,8 @@ extension TodoAddViewController: TodoViewProtocol {
 
 extension TodoAddViewController: TodoFormViewProtocol {
     func tappedSendButton(sendText: String) {
-
+        self.presenter.tappedSendButton(sendText: sendText)
+        self.navigationController?.popViewController(animated: true)
     }
 
 

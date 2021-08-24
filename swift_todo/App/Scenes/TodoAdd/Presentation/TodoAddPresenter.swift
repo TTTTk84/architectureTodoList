@@ -8,6 +8,7 @@
 import Foundation
 
 protocol TodoAddPresenterProtocol {
+    func tappedSendButton(sendText: String)
 }
 
 class TodoAddPresenter {
@@ -25,5 +26,9 @@ class TodoAddPresenter {
 }
 
 extension TodoAddPresenter: TodoAddPresenterProtocol {
+    func tappedSendButton(sendText: String) {
+        self.useCase.addTodoItem(sendText: sendText)
+    }
+
 
 }

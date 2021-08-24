@@ -19,23 +19,14 @@ protocol TodoUseCaseOutput {
     func useCaseDidUpdate(todoList: [Todo])
 }
 
-protocol TodoGatewayProtocol {
-    func fetch() -> [Todo]
-    func add(todo: Todo)
-}
+
 
 
 class TodoUseCase {
-    private var tempTodoArray: [Todo] = [
-        Todo(name: "task 1"),
-        Todo(name: "task 2"),
-        Todo(name: "task 3"),
-        Todo(name: "task 4")
-    ]
 
     var output: TodoUseCaseOutput!
-
-    var todoGateway: TodoGatewayProtocol
+    var todoGateway: TodoGatewayProtocol!
+    var todoList: [Todo] = []
 
     init() {}
 
@@ -44,10 +35,20 @@ class TodoUseCase {
 extension TodoUseCase: TodoUseCaseProtocol {
 
     func fetchAll() {
-        self.output.useCaseDidUpdate(todoList: self.tempTodoArray)
+        self.todoGateway.fetch() { [weak self] todoResult in
+            self?.todoList = todoResult
+            self!.output.useCaseDidUpdate(todoList: todoList)
+        }
+
     }
 
     func addTodoItem(sendText: String) {
+        let todo = Todo(name: sendText)
+
+        self.todoGateway.add(todo: todo) { [weak self] todoResult in
+            self?.todoList = todoResult
+            self!.output.useCaseDidUpdate(todoList: todoList)
+        }
 
     }
 
